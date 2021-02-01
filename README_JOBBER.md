@@ -14,8 +14,9 @@ After build:
 Add an S3 event going to the SQS queue that would have been created above.
 Add an email address to SNS topic created above
 
-Enable auto_scaling_groups metrics
-Rebuild dashboard
+To Test:
+cat a3.btxt b3.btxt | tr -d "\n\r" | aws s3 cp - s3://jobber-development-johnz/c_bad2.txt
 
-Look into tags, can we tag the EC2 servers so the tag shows up in billing explore?
+To Search in AWS Logs:
+"s3-virusscan["
 

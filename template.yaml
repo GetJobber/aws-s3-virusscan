@@ -288,11 +288,12 @@ Resources:
   ScanAutoScalingGroup:
     Type: 'AWS::AutoScaling::AutoScalingGroup'
     Properties:
-
       LaunchConfigurationName: !Ref ScanLaunchConfiguration
       MaxSize: !Ref AutoScalingMaxSize
       MinSize: !Ref AutoScalingMinSize
       VPCZoneIdentifier: !Split [',', {'Fn::ImportValue': !Sub '${ParentVPCStack}-SubnetsPublic'}]
+      MetricsCollection:
+      - Granularity: 1Minute 
       Tags:
       - Key: Name
         Value: !Ref 'AWS::StackName'
